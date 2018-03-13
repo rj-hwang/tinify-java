@@ -1,0 +1,1 @@
+Compress png or jpg with TinyPNG API.
