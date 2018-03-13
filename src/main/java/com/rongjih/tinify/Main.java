@@ -23,6 +23,7 @@ public class Main {
 
     File fromDir = new File("H:\\180228T2BAK\\RJ-Hwang\\Picture\\我的结婚照");
     File toDir = new File("H:\\180228T2BAK\\RJ-Hwang-Converted\\Picture\\我的结婚照");
+    int start = 99; // 99/372 IMG_6136.jpg
 
     // verify
     if (!verify(fromDir, toDir)) return;
@@ -45,7 +46,9 @@ public class Main {
     // do convert
     int i = 0;
     for (String name : pictures) {
-      logger.info("converting {}/{} {} to {}", ++i, total, name, toDir);
+      i++;
+      if (i < start) continue;
+      logger.info("converting {}/{} {} to {}", i, total, name, toDir);
       convertOne(new File(fromDir, name), new File(toDir, name));
     }
   }
